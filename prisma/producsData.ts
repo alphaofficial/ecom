@@ -1,105 +1,14 @@
 import { IProduct } from "../types";
 
-const images = [
-  {
-    type: "sneakers",
-    src: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fHByb2R1Y3R8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
-  },
-
-  {
-    type: "sneakers",
-    src: "https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
-  },
-
-  {
-    type: "sneakers",
-    src: "https://images.unsplash.com/photo-1524532787116-e70228437bbe?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
-  },
-
-  {
-    type: "sneakers",
-    src: "https://images.unsplash.com/photo-1542219550-37153d387c27?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDZ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
-  },
-
-  {
-    type: "fashion",
-    src: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fHByb2R1Y3R8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
-  },
-
-  {
-    type: "fashion",
-    src: "https://images.unsplash.com/photo-1522125123931-9304d91a42ee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDZ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
-  },
-  {
-    type: "fashion",
-    src: "https://images.unsplash.com/photo-1523754865311-b886113bb8de?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE2fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60",
-  },
-  {
-    type: "fashion",
-    src: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDIwfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60",
-  },
-
-  {
-    type: "food",
-    src: "https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1760&q=80",
-  },
-
-  {
-    type: "food",
-    src: "https://images.unsplash.com/photo-1614707267537-b85aaf00c4b7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDd8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
-  },
-  {
-    type: "food",
-    src: "https://images.unsplash.com/photo-1599785209796-786432b228bc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDl8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
-  },
-  {
-    type: "food",
-    src: "https://images.unsplash.com/photo-1546393009-ef37dc6dfd35?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE2fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60",
-  },
-
-  {
-    type: "games",
-    src: "https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    type: "games",
-    src: "https://images.unsplash.com/photo-1590845947376-2638caa89309?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    type: "games",
-    src: "https://images.unsplash.com/photo-1580327344181-c1163234e5a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
-  },
-  {
-    type: "games",
-    src: "https://images.unsplash.com/photo-1593118247619-e2d6f056869e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
-  },
-
-  {
-    type: "lifestyle",
-    src: "https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
-  },
-  {
-    type: "lifestyle",
-    src: "https://images.unsplash.com/photo-1556229010-aa3f7ff66b24?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
-  },
-  {
-    type: "lifestyle",
-    src: "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDV8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
-  },
-  {
-    type: "lifestyle",
-    src: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDh8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
-  },
-];
 export const productsData: IProduct[] = [
   {
-    name: "adipisicing eiusmod",
-    category: "culpa",
-    price: 29.4861,
+    name: "Nike Air Max",
+    category: "sneakers",
+    price: 29.4,
     currency: "USD",
     image: {
-      src: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1020&q=80",
-      alt: "officia irure",
+      src: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fHByb2R1Y3R8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
+      alt: "nike air max",
     },
     bestseller: true,
     featured: true,
@@ -114,13 +23,13 @@ export const productsData: IProduct[] = [
     },
   },
   {
-    name: "anim aute",
-    category: "sunt",
-    price: 68.1949,
+    name: "Nike Runner 4000",
+    category: "sneakers",
+    price: 68.19,
     currency: "USD",
     image: {
-      src: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1020&q=80",
-      alt: "anim id",
+      src: "https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      alt: "nike runner 4000",
     },
     bestseller: false,
     featured: false,
@@ -135,13 +44,13 @@ export const productsData: IProduct[] = [
     },
   },
   {
-    name: "consectetur et",
-    category: "qui",
-    price: 24.1833,
+    name: "Nike Air Force",
+    category: "sneakers",
+    price: 24.18,
     currency: "USD",
     image: {
-      src: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1020&q=80",
-      alt: "mollit enim",
+      src: "https://images.unsplash.com/photo-1524532787116-e70228437bbe?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      alt: "nike air force",
     },
     bestseller: false,
     featured: true,
@@ -156,13 +65,13 @@ export const productsData: IProduct[] = [
     },
   },
   {
-    name: "minim culpa",
-    category: "irure",
-    price: 9.6266,
+    name: "Jordan 4 Retro",
+    category: "sneakers",
+    price: 9.62,
     currency: "USD",
     image: {
-      src: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1020&q=80",
-      alt: "eu et",
+      src: "https://images.unsplash.com/photo-1542219550-37153d387c27?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDZ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      alt: "jordan 4 retro",
     },
     bestseller: true,
     featured: true,
@@ -177,16 +86,16 @@ export const productsData: IProduct[] = [
     },
   },
   {
-    name: "aliquip Lorem",
-    category: "aute",
-    price: 89.7816,
+    name: "Ray ban 403",
+    category: "fashion",
+    price: 89.78,
     currency: "USD",
     image: {
-      src: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1020&q=80",
-      alt: "mollit nulla",
+      src: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fHByb2R1Y3R8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
+      alt: "ray ban 403",
     },
     bestseller: false,
-    featured: true,
+    featured: false,
     details: {
       dimensions: {
         width: 1020,
@@ -198,16 +107,16 @@ export const productsData: IProduct[] = [
     },
   },
   {
-    name: "eu excepteur",
-    category: "proident",
-    price: 48.5773,
+    name: "Dior Homme",
+    category: "fashion",
+    price: 48.53,
     currency: "USD",
     image: {
-      src: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1020&q=80",
-      alt: "id laboris",
+      src: "https://images.unsplash.com/photo-1522125123931-9304d91a42ee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDZ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      alt: "dior homme",
     },
     bestseller: true,
-    featured: true,
+    featured: false,
     details: {
       dimensions: {
         width: 1020,
@@ -219,13 +128,13 @@ export const productsData: IProduct[] = [
     },
   },
   {
-    name: "cupidatat anim",
-    category: "ex",
-    price: 69.9651,
+    name: "Armani Junior",
+    category: "fahsion",
+    price: 69.96,
     currency: "USD",
     image: {
-      src: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1020&q=80",
-      alt: "tempor adipisicing",
+      src: "https://images.unsplash.com/photo-1523754865311-b886113bb8de?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE2fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60",
+      alt: "armani junior",
     },
     bestseller: false,
     featured: false,
@@ -240,16 +149,16 @@ export const productsData: IProduct[] = [
     },
   },
   {
-    name: "proident eiusmod",
-    category: "commodo",
-    price: 6.5788,
+    name: "Dolce & Gabbana",
+    category: "fashion",
+    price: 6.57,
     currency: "USD",
     image: {
-      src: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1020&q=80",
-      alt: "nostrud commodo",
+      src: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDIwfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60",
+      alt: "dolce & gabbana",
     },
     bestseller: false,
-    featured: true,
+    featured: false,
     details: {
       dimensions: {
         width: 1020,
@@ -261,13 +170,13 @@ export const productsData: IProduct[] = [
     },
   },
   {
-    name: "eiusmod irure",
-    category: "nisi",
-    price: 79.5531,
+    name: "Nancy's",
+    category: "food",
+    price: 79.51,
     currency: "USD",
     image: {
-      src: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1020&q=80",
-      alt: "irure ex",
+      src: "https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1760&q=80",
+      alt: "nancy's",
     },
     bestseller: false,
     featured: true,
@@ -282,13 +191,13 @@ export const productsData: IProduct[] = [
     },
   },
   {
-    name: "sint nisi",
-    category: "minim",
-    price: 60.951,
+    name: "Wendy's",
+    category: "food",
+    price: 60.51,
     currency: "USD",
     image: {
-      src: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1020&q=80",
-      alt: "dolore voluptate",
+      src: "https://images.unsplash.com/photo-1614707267537-b85aaf00c4b7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDd8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      alt: "wendy's",
     },
     bestseller: false,
     featured: false,
@@ -303,16 +212,16 @@ export const productsData: IProduct[] = [
     },
   },
   {
-    name: "excepteur sint",
-    category: "pariatur",
-    price: 52.2781,
+    name: "KFC",
+    category: "food",
+    price: 52.21,
     currency: "USD",
     image: {
-      src: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1020&q=80",
-      alt: "nulla commodo",
+      src: "https://images.unsplash.com/photo-1599785209796-786432b228bc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDl8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      alt: "kfc",
     },
-    bestseller: true,
-    featured: true,
+    bestseller: false,
+    featured: false,
     details: {
       dimensions: {
         width: 1020,
@@ -324,13 +233,13 @@ export const productsData: IProduct[] = [
     },
   },
   {
-    name: "minim duis",
-    category: "nostrud",
-    price: 37.0813,
+    name: "Burger King",
+    category: "food",
+    price: 37.03,
     currency: "USD",
     image: {
-      src: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1020&q=80",
-      alt: "irure qui",
+      src: "https://images.unsplash.com/photo-1546393009-ef37dc6dfd35?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE2fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60",
+      alt: "burgar king",
     },
     bestseller: false,
     featured: false,
@@ -345,13 +254,13 @@ export const productsData: IProduct[] = [
     },
   },
   {
-    name: "incididunt qui",
-    category: "minim",
-    price: 43.7539,
+    name: "XBox 360",
+    category: "games",
+    price: 43.79,
     currency: "USD",
     image: {
-      src: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1020&q=80",
-      alt: "proident qui",
+      src: "https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
+      alt: "xbox 360",
     },
     bestseller: true,
     featured: true,
@@ -366,13 +275,13 @@ export const productsData: IProduct[] = [
     },
   },
   {
-    name: "cupidatat eu",
-    category: "proident",
-    price: 79.1473,
+    name: "Playstation 4",
+    category: "games",
+    price: 79.73,
     currency: "USD",
     image: {
-      src: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1020&q=80",
-      alt: "quis nisi",
+      src: "https://images.unsplash.com/photo-1590845947376-2638caa89309?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
+      alt: "playstaion 4",
     },
     bestseller: false,
     featured: true,
@@ -387,13 +296,13 @@ export const productsData: IProduct[] = [
     },
   },
   {
-    name: "non consectetur",
-    category: "nulla",
-    price: 68.284,
+    name: "Playstation 3",
+    category: "games",
+    price: 68.24,
     currency: "USD",
     image: {
-      src: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1020&q=80",
-      alt: "labore veniam",
+      src: "https://images.unsplash.com/photo-1580327344181-c1163234e5a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      alt: "playstation 3",
     },
     bestseller: false,
     featured: true,
@@ -408,13 +317,13 @@ export const productsData: IProduct[] = [
     },
   },
   {
-    name: "cupidatat elit",
-    category: "duis",
-    price: 49.2427,
+    name: "Nintendo Switch",
+    category: "games",
+    price: 49.27,
     currency: "USD",
     image: {
-      src: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1020&q=80",
-      alt: "non eiusmod",
+      src: "https://images.unsplash.com/photo-1593118247619-e2d6f056869e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      alt: "nintendo switch",
     },
     bestseller: true,
     featured: false,
@@ -429,16 +338,16 @@ export const productsData: IProduct[] = [
     },
   },
   {
-    name: "anim ipsum",
-    category: "quis",
-    price: 53.6268,
+    name: "Facial Foundation",
+    category: "lifestyle",
+    price: 53.68,
     currency: "USD",
     image: {
-      src: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1020&q=80",
-      alt: "dolore ex",
+      src: "https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      alt: "facial foundation",
     },
     bestseller: true,
-    featured: true,
+    featured: false,
     details: {
       dimensions: {
         width: 1020,
@@ -450,16 +359,16 @@ export const productsData: IProduct[] = [
     },
   },
   {
-    name: "laboris cillum",
-    category: "sit",
-    price: 33.3394,
+    name: "Lifestyle Bencher",
+    category: "lifestyle",
+    price: 33.33,
     currency: "USD",
     image: {
-      src: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1020&q=80",
-      alt: "esse esse",
+      src: "https://images.unsplash.com/photo-1556229010-aa3f7ff66b24?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      alt: "lifestyle bencher",
     },
     bestseller: false,
-    featured: true,
+    featured: false,
     details: {
       dimensions: {
         width: 1020,
@@ -471,13 +380,13 @@ export const productsData: IProduct[] = [
     },
   },
   {
-    name: "eu quis",
-    category: "ipsum",
-    price: 56.6677,
+    name: "Velvet Scarf",
+    category: "lifestyle",
+    price: 56.67,
     currency: "USD",
     image: {
-      src: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1020&q=80",
-      alt: "ex ut",
+      src: "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDV8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      alt: "velvel scarf",
     },
     bestseller: true,
     featured: true,
@@ -492,13 +401,13 @@ export const productsData: IProduct[] = [
     },
   },
   {
-    name: "cillum ea",
-    category: "commodo",
-    price: 22.9111,
+    name: "Lifestyle Front",
+    category: "lifestyle",
+    price: 22.11,
     currency: "USD",
     image: {
-      src: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1020&q=80",
-      alt: "sunt sit",
+      src: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDh8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      alt: "lifestyle front",
     },
     bestseller: false,
     featured: false,
@@ -510,405 +419,6 @@ export const productsData: IProduct[] = [
       size: 1020,
       description:
         "consectetur id ex officia in cillum irure consectetur cillum aute id occaecat magna minim amet enim Lorem occaecat qui magna",
-    },
-  },
-  {
-    name: "sit ullamco",
-    category: "cillum",
-    price: 72.133,
-    currency: "USD",
-    image: {
-      src: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1020&q=80",
-      alt: "quis excepteur",
-    },
-    bestseller: true,
-    featured: true,
-    details: {
-      dimensions: {
-        width: 1020,
-        height: 1020,
-      },
-      size: 1020,
-      description:
-        "laboris et in minim labore pariatur fugiat duis quis consequat anim dolor cupidatat duis veniam aliquip ipsum quis in voluptate",
-    },
-  },
-  {
-    name: "mollit fugiat",
-    category: "id",
-    price: 75.8018,
-    currency: "USD",
-    image: {
-      src: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1020&q=80",
-      alt: "cupidatat do",
-    },
-    bestseller: false,
-    featured: false,
-    details: {
-      dimensions: {
-        width: 1020,
-        height: 1020,
-      },
-      size: 1020,
-      description:
-        "ad ad cupidatat velit cupidatat cupidatat voluptate eiusmod ad cupidatat laboris incididunt sunt dolore occaecat ea voluptate enim enim sit",
-    },
-  },
-  {
-    name: "est est",
-    category: "adipisicing",
-    price: 44.1923,
-    currency: "USD",
-    image: {
-      src: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1020&q=80",
-      alt: "Lorem ea",
-    },
-    bestseller: true,
-    featured: false,
-    details: {
-      dimensions: {
-        width: 1020,
-        height: 1020,
-      },
-      size: 1020,
-      description:
-        "aute incididunt est culpa exercitation officia ea proident ut dolore qui voluptate non nulla sint cillum elit id labore pariatur",
-    },
-  },
-  {
-    name: "ea veniam",
-    category: "fugiat",
-    price: 75.268,
-    currency: "USD",
-    image: {
-      src: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1020&q=80",
-      alt: "consectetur sunt",
-    },
-    bestseller: true,
-    featured: false,
-    details: {
-      dimensions: {
-        width: 1020,
-        height: 1020,
-      },
-      size: 1020,
-      description:
-        "deserunt et minim amet qui occaecat deserunt ut aliqua pariatur aute velit eiusmod est esse et id fugiat voluptate consectetur",
-    },
-  },
-  {
-    name: "nostrud enim",
-    category: "eu",
-    price: 69.0334,
-    currency: "USD",
-    image: {
-      src: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1020&q=80",
-      alt: "reprehenderit aliquip",
-    },
-    bestseller: true,
-    featured: false,
-    details: {
-      dimensions: {
-        width: 1020,
-        height: 1020,
-      },
-      size: 1020,
-      description:
-        "cupidatat ut ex exercitation occaecat nulla quis nostrud ipsum mollit labore nisi amet sint qui culpa amet voluptate mollit ex",
-    },
-  },
-  {
-    name: "Lorem ea",
-    category: "elit",
-    price: 87.5192,
-    currency: "USD",
-    image: {
-      src: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1020&q=80",
-      alt: "ex ex",
-    },
-    bestseller: true,
-    featured: true,
-    details: {
-      dimensions: {
-        width: 1020,
-        height: 1020,
-      },
-      size: 1020,
-      description:
-        "nostrud sit mollit tempor elit eu aute sunt irure adipisicing enim amet anim tempor eu exercitation in magna est occaecat",
-    },
-  },
-  {
-    name: "ex velit",
-    category: "velit",
-    price: 35.2622,
-    currency: "USD",
-    image: {
-      src: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1020&q=80",
-      alt: "minim dolor",
-    },
-    bestseller: false,
-    featured: false,
-    details: {
-      dimensions: {
-        width: 1020,
-        height: 1020,
-      },
-      size: 1020,
-      description:
-        "aliquip duis aliqua veniam qui occaecat qui voluptate ut elit incididunt enim ipsum elit culpa dolor dolor ut eiusmod labore",
-    },
-  },
-  {
-    name: "dolore amet",
-    category: "magna",
-    price: 37.055,
-    currency: "USD",
-    image: {
-      src: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1020&q=80",
-      alt: "officia dolor",
-    },
-    bestseller: true,
-    featured: false,
-    details: {
-      dimensions: {
-        width: 1020,
-        height: 1020,
-      },
-      size: 1020,
-      description:
-        "ea nostrud pariatur dolor et excepteur excepteur qui mollit aliqua ea esse nisi Lorem do excepteur laborum consectetur laborum do",
-    },
-  },
-  {
-    name: "occaecat consectetur",
-    category: "ex",
-    price: 28.177,
-    currency: "USD",
-    image: {
-      src: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1020&q=80",
-      alt: "est commodo",
-    },
-    bestseller: false,
-    featured: false,
-    details: {
-      dimensions: {
-        width: 1020,
-        height: 1020,
-      },
-      size: 1020,
-      description:
-        "excepteur sit duis aute non id ea elit pariatur occaecat ullamco non esse et eiusmod consequat enim ex velit esse",
-    },
-  },
-  {
-    name: "adipisicing veniam",
-    category: "do",
-    price: 52.3977,
-    currency: "USD",
-    image: {
-      src: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1020&q=80",
-      alt: "irure minim",
-    },
-    bestseller: true,
-    featured: false,
-    details: {
-      dimensions: {
-        width: 1020,
-        height: 1020,
-      },
-      size: 1020,
-      description:
-        "est laboris nostrud est proident mollit cupidatat eiusmod consequat occaecat aute voluptate amet do quis ad officia sit ex nulla",
-    },
-  },
-  {
-    name: "esse excepteur",
-    category: "id",
-    price: 81.5276,
-    currency: "USD",
-    image: {
-      src: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1020&q=80",
-      alt: "consequat nulla",
-    },
-    bestseller: true,
-    featured: true,
-    details: {
-      dimensions: {
-        width: 1020,
-        height: 1020,
-      },
-      size: 1020,
-      description:
-        "deserunt nulla aliqua qui exercitation eu ea ea dolore et sint sunt consectetur mollit nulla nostrud do consequat nisi laboris",
-    },
-  },
-  {
-    name: "duis culpa",
-    category: "et",
-    price: 18.9707,
-    currency: "USD",
-    image: {
-      src: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1020&q=80",
-      alt: "fugiat incididunt",
-    },
-    bestseller: false,
-    featured: true,
-    details: {
-      dimensions: {
-        width: 1020,
-        height: 1020,
-      },
-      size: 1020,
-      description:
-        "voluptate ex pariatur officia ut quis cillum veniam irure id id minim et adipisicing ea consequat labore duis labore eu",
-    },
-  },
-  {
-    name: "tempor magna",
-    category: "culpa",
-    price: 88.7475,
-    currency: "USD",
-    image: {
-      src: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1020&q=80",
-      alt: "consectetur qui",
-    },
-    bestseller: true,
-    featured: true,
-    details: {
-      dimensions: {
-        width: 1020,
-        height: 1020,
-      },
-      size: 1020,
-      description:
-        "id dolore ea culpa ipsum do do nulla cillum ullamco aliquip labore enim excepteur dolor cupidatat in cupidatat incididunt qui",
-    },
-  },
-  {
-    name: "ea aliquip",
-    category: "voluptate",
-    price: 11.0348,
-    currency: "USD",
-    image: {
-      src: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1020&q=80",
-      alt: "irure do",
-    },
-    bestseller: false,
-    featured: false,
-    details: {
-      dimensions: {
-        width: 1020,
-        height: 1020,
-      },
-      size: 1020,
-      description:
-        "tempor magna in velit mollit cupidatat consectetur voluptate eiusmod voluptate anim laborum reprehenderit id dolor Lorem aliquip qui in sint",
-    },
-  },
-  {
-    name: "duis nostrud",
-    category: "nostrud",
-    price: 66.9573,
-    currency: "USD",
-    image: {
-      src: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1020&q=80",
-      alt: "qui fugiat",
-    },
-    bestseller: false,
-    featured: true,
-    details: {
-      dimensions: {
-        width: 1020,
-        height: 1020,
-      },
-      size: 1020,
-      description:
-        "aliqua ea voluptate magna anim tempor consequat reprehenderit nostrud labore dolor sint et sunt Lorem tempor officia id cupidatat exercitation",
-    },
-  },
-  {
-    name: "ullamco duis",
-    category: "est",
-    price: 47.999,
-    currency: "USD",
-    image: {
-      src: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1020&q=80",
-      alt: "et dolor",
-    },
-    bestseller: false,
-    featured: false,
-    details: {
-      dimensions: {
-        width: 1020,
-        height: 1020,
-      },
-      size: 1020,
-      description:
-        "adipisicing aliqua cillum qui do dolore commodo mollit et aute do magna do culpa Lorem cupidatat pariatur aliqua ullamco irure",
-    },
-  },
-  {
-    name: "laborum do",
-    category: "pariatur",
-    price: 37.2761,
-    currency: "USD",
-    image: {
-      src: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1020&q=80",
-      alt: "dolore aute",
-    },
-    bestseller: false,
-    featured: true,
-    details: {
-      dimensions: {
-        width: 1020,
-        height: 1020,
-      },
-      size: 1020,
-      description:
-        "consequat cillum Lorem tempor ipsum eu sunt enim sit nostrud voluptate cupidatat qui fugiat incididunt et sint esse voluptate laboris",
-    },
-  },
-  {
-    name: "velit mollit",
-    category: "adipisicing",
-    price: 39.9383,
-    currency: "USD",
-    image: {
-      src: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1020&q=80",
-      alt: "irure Lorem",
-    },
-    bestseller: false,
-    featured: true,
-    details: {
-      dimensions: {
-        width: 1020,
-        height: 1020,
-      },
-      size: 1020,
-      description:
-        "laborum adipisicing laborum deserunt et non deserunt proident consequat ad id Lorem magna commodo aute ullamco elit mollit ipsum ullamco",
-    },
-  },
-  {
-    name: "sint minim",
-    category: "aliqua",
-    price: 65.836,
-    currency: "USD",
-    image: {
-      src: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1020&q=80",
-      alt: "pariatur cupidatat",
-    },
-    bestseller: false,
-    featured: false,
-    details: {
-      dimensions: {
-        width: 1020,
-        height: 1020,
-      },
-      size: 1020,
-      description:
-        "culpa veniam mollit exercitation elit pariatur et elit non reprehenderit proident pariatur ipsum cillum aute qui ea sunt consectetur ex",
     },
   },
 ];

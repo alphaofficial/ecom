@@ -12,24 +12,25 @@ datasource db {
 }
 
 model Product {
-  id         Int      @id @default(autoincrement())
-  name       String
-  category   String
-  price      Int
-  currency   Category @relation(fields: [categoryId], references: [id])
-  categoryId Int
-  image      Image    @relation(fields: [imageId], references: [id])
-  imageId    Int
-  bestseller Boolean
-  featured   Boolean
-  details    Details? @relation(fields: [detailsId], references: [id])
-  detailsId  Int
+  id           Int      @id @default(autoincrement())
+  name         String
+  currency     String
+  price        Float
+  category     Category @relation(fields: [categoryName], references: [name])
+  image        Image    @relation(fields: [imageId], references: [id])
+  imageId      Int
+  bestseller   Boolean
+  featured     Boolean
+  details      Details? @relation(fields: [detailsId], references: [id])
+  detailsId    Int
+  categoryName String
 }
 
 model Category {
-  id      Int       @id @default(autoincrement())
   name    String
   Product Product[]
+
+  @@id([name])
 }
 
 model Image {
@@ -40,17 +41,10 @@ model Image {
 }
 
 model Details {
-  id           Int        @id @default(autoincrement())
-  dimensions   Dimensions @relation(fields: [dimensionsId], references: [id])
-  dimensionsId Int
-  size         Int?
-  description  String?
-  Product      Product[]
-}
-
-model Dimensions {
-  id      Int       @id @default(autoincrement())
-  width   Int?
-  height  Int?
-  Details Details[]
+  id          Int       @id @default(autoincrement())
+  width       Int
+  height      Int
+  size        Int?
+  description String?
+  Product     Product[]
 }

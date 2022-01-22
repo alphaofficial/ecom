@@ -1,6 +1,4 @@
-import { IProduct } from "../../types";
-
-export const productsData: IProduct[] = [
+const productsData = [
   {
     name: "Nike Air Max",
     category: "sneakers",
@@ -422,3 +420,5 @@ export const productsData: IProduct[] = [
     },
   },
 ];
+
+module.exports = productsData;

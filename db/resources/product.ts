@@ -2,26 +2,26 @@ import { Db } from "mongodb";
 import { nanoid } from "nanoid";
 
 export const getProduct = async (db: Db, id: string) => {
-  return db.collection("product").findOne({ _id: id });
+  return db.collection("products").findOne({ _id: id });
 };
 
 export const getProducts = async (db: Db, folderId: string) => {
-  return db.collection("product").find({ folder: folderId }).toArray();
+  return db.collection("products").find({ folder: folderId }).toArray();
 };
 
 export const createProduct = async (db: Db, product: any) => {
   return db
-    .collection("product")
+    .collection("products")
     .insertOne({
-      _id: nanoid(12),
       ...product,
       createdAt: new Date().toDateString(),
+      updatedAt: new Date().toDateString(),
     })
     .then((product) => product);
 };
 
 export const updateProduct = async (db: Db, id: string, updates: any) => {
-  const operation = await db.collection("product").updateOne(
+  const operation = await db.collection("products").updateOne(
     {
       _id: id,
     },
@@ -34,6 +34,6 @@ export const updateProduct = async (db: Db, id: string, updates: any) => {
     throw new Error("Could not update document");
   }
 
-  const updated = await db.collection("product").findOne({ _id: id });
+  const updated = await db.collection("products").findOne({ _id: id });
   return updated;
 };

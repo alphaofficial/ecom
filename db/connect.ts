@@ -1,26 +1,48 @@
 import { Db, MongoClient } from "mongodb";
 
-//@ts-ignore
-global.mongo = global.mongo || {};
+const MONGODB_URI = process.env.DATABASE_URL;
+const DATABASE_NAME = process.env.DATABASE_NAME;
 
-export const connectToDB = async () => {
-  //@ts-ignore
-  if (!global.mongo.client) {
-    //@ts-ignore
-    global.mongo.client = new MongoClient(process.env.DATABASE_URL, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      bufferMaxEntries: 0,
-      connectTimeoutMS: 10000,
-    });
+// check the MongoDB URI
+if (!MONGODB_URI) {
+  throw new Error("Define the MONGODB_URI environmental variable");
+}
 
-    console.log("connecting to DB");
-    //@ts-ignore
-    await global.mongo.client.connect();
-    console.log("connected to DB");
+if (!DATABASE_NAME) {
+  throw new Error("Define the DATABASE_NAME environmental variable");
+}
+
+let cachedClient: MongoClient | null = null;
+let cachedDb: Db | null = null;
+
+export async function connectToDB() {
+  // check the cached.
+  if (cachedClient && cachedDb) {
+    // load from cache
+    return {
+      dbClient: cachedClient,
+      db: cachedDb,
+    };
   }
-  //@ts-ignore
-  const db: Db = global.mongo.client.db("bejamas");
-  //@ts-ignore
-  return { db, dbClient: global.mongo.client };
-};
+  // set the connection options
+  const opts = {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    connectTimeoutMS: 10000,
+  };
+
+  // Connect to cluster
+  let client = new MongoClient(MONGODB_URI as string, opts);
+  await client.connect();
+  let db = client.db(DATABASE_NAME);
+  console.log("connected to database");
+  // set cache
+  cachedClient = client;
+  cachedDb = db;
+  console.log("cached connection instance");
+
+  return {
+    dbClient: cachedClient,
+    db: cachedDb,
+  };
+}

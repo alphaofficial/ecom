@@ -6,12 +6,13 @@ const FeaturedProduct: FC<{
   product: IProduct;
   recommendation?: IProduct[];
 }> = ({ product }) => {
+  console.log({ product });
   return (
     <Box>
       <Flex justifyContent="space-between" alignItems="center">
         <Box>
           <Heading fontWeight="bold" fontSize="3xl">
-            {product.name}
+            {product?.name}
           </Heading>
         </Box>
         <Box>
@@ -37,11 +38,11 @@ const FeaturedProduct: FC<{
         </Box>
       </Flex>
       <Box paddingY="10px" position="relative">
-        <Image
-          src={product.image.src}
-          alt={product.image.alt}
+        <Box
           width="100%"
-          height="auto"
+          height="500px"
+          backgroundImage={product.image.src}
+          backgroundSize="cover"
         />
         <Box
           position="absolute"
@@ -74,7 +75,7 @@ const FeaturedProduct: FC<{
             </Box>
             <Box>
               <Text fontSize="normal" color="gray.600">
-                {product.details.description}
+                {product?.details?.description}
               </Text>
             </Box>
           </Box>
@@ -87,30 +88,6 @@ const FeaturedProduct: FC<{
       </Box>
     </Box>
   );
-};
-
-FeaturedProduct.defaultProps = {
-  product: {
-    name: "Playstation 4",
-    category: "games",
-    price: 79.73,
-    currency: "USD",
-    image: {
-      src: "https://images.unsplash.com/photo-1590845947376-2638caa89309?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
-      alt: "playstaion 4",
-    },
-    bestseller: false,
-    featured: true,
-    details: {
-      dimensions: {
-        width: 1020,
-        height: 1020,
-      },
-      size: 1020,
-      description:
-        "commodo ipsum excepteur cillum pariatur proident officia non sint irure deserunt eiusmod sunt ullamco Lorem ullamco quis Lorem ea eiusmod",
-    },
-  },
 };
 
 export default FeaturedProduct;

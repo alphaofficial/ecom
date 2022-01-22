@@ -1,15 +1,17 @@
-import { Db } from "mongodb";
-import { nanoid } from "nanoid";
+import { connectToDB } from "../connect";
 
-export const getProduct = async (db: Db, id: string) => {
+export const getProduct = async (id: string) => {
+  let { db } = await connectToDB();
   return db.collection("products").findOne({ _id: id });
 };
 
-export const getProducts = async (db: Db, folderId: string) => {
-  return db.collection("products").find({ folder: folderId }).toArray();
+export const getProducts = async () => {
+  let { db } = await connectToDB();
+  return db.collection("products").find({}).toArray();
 };
 
-export const createProduct = async (db: Db, product: any) => {
+export const createProduct = async (product: any) => {
+  let { db } = await connectToDB();
   return db
     .collection("products")
     .insertOne({
@@ -20,7 +22,8 @@ export const createProduct = async (db: Db, product: any) => {
     .then((product) => product);
 };
 
-export const updateProduct = async (db: Db, id: string, updates: any) => {
+export const updateProduct = async (id: string, updates: any) => {
+  let { db } = await connectToDB();
   const operation = await db.collection("products").updateOne(
     {
       _id: id,

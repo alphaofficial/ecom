@@ -5,16 +5,17 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "seed": "ts-node --compiler-options {\"module\":\"esnext\"} db/seed/index.ts"
   },
   "dependencies": {
     "@chakra-ui/react": "^1.7.4",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
-    "@prisma/client": "^3.8.1",
     "easy-peasy": "^5.0.4",
     "framer-motion": "^5",
     "mongodb": "^4.3.1",
+    "nanoid": "^3.2.0",
     "next": "12.0.8",
     "next-connect": "^0.11.0",
     "react": "17.0.2",
@@ -39,11 +40,7 @@
     "eslint-plugin-react": "^7.27.1",
     "eslint-plugin-react-hooks": "^4.3.0",
     "prettier": "^2.4.1",
-    "prisma": "^3.8.1",
     "superjson": "^1.8.0",
     "typescript": "4.5.4"
-  },
-  "prisma": {
-    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
   }
 }

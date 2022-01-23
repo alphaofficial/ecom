@@ -11,6 +11,14 @@ const ProductItem: FC<ProductItemProps> = ({ product, onAddToCart }) => (
   <Box>
     <Box position="relative">
       <Box
+        position="absolute"
+        bg="white"
+        paddingX="10px"
+        hidden={product.bestseller}
+      >
+        <Text fontSize="small">Best seller</Text>
+      </Box>
+      <Box
         w={[362, 282]}
         height={[402, 398]}
         backgroundImage={product.image.src}

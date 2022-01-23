@@ -46,7 +46,7 @@ const Pagination = (props: any) => {
   return (
     <Box marginTop="100px" marginBottom="20px">
       <Flex justifyContent="center" alignItems="center">
-        <Box onClick={onPrevious}>
+        <Box onClick={onPrevious} hidden={currentPage === 1}>
           <IconButton variant="ghost" aria-label="left arrow">
             <FiChevronLeft size={25} />
           </IconButton>
@@ -66,7 +66,7 @@ const Pagination = (props: any) => {
           );
         })}
 
-        <Box onClick={onNext}>
+        <Box onClick={onNext} hidden={currentPage === lastPage}>
           <IconButton variant="ghost" aria-label="right arrow">
             <FiChevronRight size={25} />
           </IconButton>

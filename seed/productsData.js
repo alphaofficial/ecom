@@ -69,7 +69,7 @@ const productsData = [
       alt: "nike air force",
     },
     bestseller: false,
-    featured: true,
+    featured: false,
     details: {
       dimensions: {
         width: 1020,
@@ -78,20 +78,6 @@ const productsData = [
       size: 1020,
       description:
         "sit dolor minim adipisicing ad non officia aliquip esse Lorem Lorem velit laboris do in duis labore tempor enim voluptate",
-      recommendations: [
-        {
-          src: "https://picsum.photos/id/1025/200/300",
-          alt: "",
-        },
-        {
-          src: "https://picsum.photos/id/1023/200/300",
-          alt: "",
-        },
-        {
-          src: "https://picsum.photos/id/1024/200/300",
-          alt: "",
-        },
-      ],
     },
     createdAt: new Date().toDateString(),
     updatedAt: new Date().toDateString(),
@@ -106,7 +92,7 @@ const productsData = [
       alt: "jordan 4 retro",
     },
     bestseller: true,
-    featured: true,
+    featured: false,
     details: {
       dimensions: {
         width: 1020,
@@ -138,20 +124,6 @@ const productsData = [
       size: 1020,
       description:
         "aute ut aute ut duis esse anim consequat ipsum in ea adipisicing nisi ut ullamco elit velit nisi non excepteur",
-      recommendations: [
-        {
-          src: "https://picsum.photos/id/1025/200/300",
-          alt: "",
-        },
-        {
-          src: "https://picsum.photos/id/1023/200/300",
-          alt: "",
-        },
-        {
-          src: "https://picsum.photos/id/1024/200/300",
-          alt: "",
-        },
-      ],
     },
     createdAt: new Date().toDateString(),
     updatedAt: new Date().toDateString(),
@@ -181,7 +153,7 @@ const productsData = [
   },
   {
     name: "Armani Junior",
-    category: "fahsion",
+    category: "fashion",
     price: 69.96,
     currency: "USD",
     image: {
@@ -235,7 +207,7 @@ const productsData = [
       alt: "nancy's",
     },
     bestseller: false,
-    featured: true,
+    featured: false,
     details: {
       dimensions: {
         width: 1020,
@@ -327,7 +299,7 @@ const productsData = [
       alt: "xbox 360",
     },
     bestseller: true,
-    featured: true,
+    featured: false,
     details: {
       dimensions: {
         width: 1020,
@@ -350,7 +322,7 @@ const productsData = [
       alt: "playstaion 4",
     },
     bestseller: false,
-    featured: true,
+    featured: false,
     details: {
       dimensions: {
         width: 1020,
@@ -373,7 +345,7 @@ const productsData = [
       alt: "playstation 3",
     },
     bestseller: false,
-    featured: true,
+    featured: false,
     details: {
       dimensions: {
         width: 1020,
@@ -465,7 +437,7 @@ const productsData = [
       alt: "velvel scarf",
     },
     bestseller: true,
-    featured: true,
+    featured: false,
     details: {
       dimensions: {
         width: 1020,

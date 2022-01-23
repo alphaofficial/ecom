@@ -1,6 +1,6 @@
 import { NextApiRequest } from "next";
-import { Db, MongoClient } from "mongodb";
-export interface IProduct {
+import { Db, MongoClient, Document } from "mongodb";
+export interface IProduct extends Document {
   name: string;
   category: string;
   price: number;
@@ -26,15 +26,22 @@ export interface IProduct {
   createdAt?: string;
   updatedAt?: string;
 }
-
-export interface IRequest extends NextApiRequest {
-  db: Db;
-  dbClient: MongoClient;
-}
-
 export interface IPaginationProps {
   totalCount: number;
   pageSize: number;
   siblingCount: number;
   currentPage: number;
+}
+
+export interface IFilter {
+  categories?: string[];
+  priceRange?: string;
+}
+
+export interface IQuery {
+  [key: string]: string | string[];
+}
+
+export interface IParams {
+  [key: string]: string;
 }

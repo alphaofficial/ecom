@@ -18,8 +18,6 @@ const Pagination = (props: any) => {
     pageSize,
   });
 
-  console.log({ currentPage });
-
   const lastPage = paginationRange
     ? paginationRange[paginationRange.length - 1]
     : 0;
@@ -53,7 +51,11 @@ const Pagination = (props: any) => {
         </Box>
         {paginationRange?.map((pageNumber, index) => {
           return (
-            <Box paddingX="10px" onClick={() => onPageChange(pageNumber)}>
+            <Box
+              key={index}
+              paddingX="10px"
+              onClick={() => onPageChange(pageNumber)}
+            >
               <Button variant="ghost">
                 <Text
                   fontWeight="bold"

@@ -1,13 +1,18 @@
+import { IQuery } from "../../types";
 import { connectToDB } from "../connect";
 
 export const getProduct = async (id: string) => {
   let { db } = await connectToDB();
-  return db.collection("products").findOne({ _id: id });
+  return await db.collection("products").findOne({ _id: id });
 };
 
-export const getProducts = async () => {
+export const getProducts = async (queries?: IQuery) => {
+  let sortParams: any = {};
+  if (queries) {
+    sortParams[queries.sortValue as string] = Number(queries.sortOrder);
+  }
   let { db } = await connectToDB();
-  return db.collection("products").find({}).toArray();
+  return await db.collection("products").find({}).sort(sortParams).toArray();
 };
 
 export const createProduct = async (product: any) => {
@@ -30,8 +35,6 @@ export const updateProduct = async (id: string, updates: any) => {
     },
     { $set: updates }
   );
-
-  console.log({ operation });
 
   if (!operation.acknowledged) {
     throw new Error("Could not update document");

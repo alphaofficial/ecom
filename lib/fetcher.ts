@@ -9,10 +9,11 @@ export const fetcher = async (url: string, data = undefined) =>
     },
     body: JSON.stringify(data),
   })
-    .then((res) => {
+    .then(async (res) => {
       if (res.status > 399 && res.status < 200) {
         throw new Error(res.statusText);
       }
-      return res.json();
+      const { data } = await res.json();
+      return data;
     })
     .then((res) => res);

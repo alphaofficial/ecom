@@ -31,3 +31,10 @@ export interface IRequest extends NextApiRequest {
   db: Db;
   dbClient: MongoClient;
 }
+
+export interface IPaginationProps {
+  totalCount: number;
+  pageSize: number;
+  siblingCount: number;
+  currentPage: number;
+}

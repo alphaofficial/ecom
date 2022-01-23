@@ -2,13 +2,9 @@ import { Box, Button, Flex, Heading, Image, Text } from "@chakra-ui/react";
 import { FC } from "react";
 import { IProduct } from "../types";
 
-const FeaturedProduct: FC<{
-  product: IProduct;
-  recommendation?: IProduct[];
-}> = ({ product }) => {
-  console.log({ product });
+const FeaturedProduct: FC<{ product: IProduct }> = ({ product }) => {
   return (
-    <Box>
+    <Box marginBottom="80px">
       <Flex justifyContent="space-between" alignItems="center">
         <Box>
           <Heading fontWeight="bold" fontSize="3xl">
@@ -83,6 +79,8 @@ const FeaturedProduct: FC<{
             <Box>
               <Heading fontSize="xl">People also buy</Heading>
             </Box>
+
+            <Box></Box>
           </Box>
         </Flex>
       </Box>

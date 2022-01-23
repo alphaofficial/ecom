@@ -78,6 +78,20 @@ const productsData = [
       size: 1020,
       description:
         "sit dolor minim adipisicing ad non officia aliquip esse Lorem Lorem velit laboris do in duis labore tempor enim voluptate",
+      recommendations: [
+        {
+          src: "https://picsum.photos/id/1025/200/300",
+          alt: "",
+        },
+        {
+          src: "https://picsum.photos/id/1023/200/300",
+          alt: "",
+        },
+        {
+          src: "https://picsum.photos/id/1024/200/300",
+          alt: "",
+        },
+      ],
     },
     createdAt: new Date().toDateString(),
     updatedAt: new Date().toDateString(),
@@ -124,6 +138,20 @@ const productsData = [
       size: 1020,
       description:
         "aute ut aute ut duis esse anim consequat ipsum in ea adipisicing nisi ut ullamco elit velit nisi non excepteur",
+      recommendations: [
+        {
+          src: "https://picsum.photos/id/1025/200/300",
+          alt: "",
+        },
+        {
+          src: "https://picsum.photos/id/1023/200/300",
+          alt: "",
+        },
+        {
+          src: "https://picsum.photos/id/1024/200/300",
+          alt: "",
+        },
+      ],
     },
     createdAt: new Date().toDateString(),
     updatedAt: new Date().toDateString(),

@@ -1,5 +1,6 @@
-import { Box, Divider, Flex } from "@chakra-ui/react";
+import { Box, Divider, Flex, IconButton, Text } from "@chakra-ui/react";
 import Image from "next/image";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 
 const Navbar = () => {
   return (
@@ -7,7 +8,7 @@ const Navbar = () => {
       <Flex
         justifyContent="space-between"
         alignItems="center"
-        paddingBottom="5px"
+        paddingBottom="10px"
       >
         <Box>
           <Image
@@ -18,12 +19,25 @@ const Navbar = () => {
           />
         </Box>
         <Box>
-          <Image
-            src="/images/shopping-cart.svg"
-            width={54}
-            height={54}
-            alt="cart icon"
-          />
+          <Box position="relative">
+            <IconButton variant="ghost>" aria-label="shopping cart button">
+              <AiOutlineShoppingCart size={40} />
+            </IconButton>
+
+            <Box
+              position="absolute"
+              bg="black"
+              padding="4px"
+              width="21px"
+              height="21px"
+              right="-14px"
+              bottom="-11px"
+            >
+              <Text fontSize="x-small" color="white" textAlign="center">
+                1
+              </Text>
+            </Box>
+          </Box>
         </Box>
       </Flex>
       <Divider color="#E4E4E4" />

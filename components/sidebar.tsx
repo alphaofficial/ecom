@@ -47,7 +47,7 @@ const Sidebar: FC<SidebarProps> = ({
         </Stack>
       </Box>
       <Box paddingY="20px">
-        <Divider />
+        <Divider color="#E4E4E4" />
       </Box>
       <Box marginBottom="20px">
         <Heading fontSize="lg">Price</Heading>

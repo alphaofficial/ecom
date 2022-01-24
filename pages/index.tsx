@@ -166,21 +166,21 @@ const Home = () => {
   return (
     <Layout>
       <FeaturedProduct product={featuredProduct} />
-      <Divider color="gray.300" />
+      <Divider color="#E4E4E4" />
       <Box paddingY="20px">
         <Box marginBottom="20px">
           <Flex justifyContent="space-between" alignItems="center">
             <Box>
               <HStack>
                 <Heading fontSize="lg">Photography / </Heading>
-                <Text fontSize="lg" color="gray.400">
+                <Text fontSize="lg" color="#9B9B9B">
                   Premium photos
                 </Text>
               </HStack>
             </Box>
             <Box display={{ base: "none", sm: "none", md: "block" }}>
               <Flex alignItems="center">
-                <HStack w="150px" color="gray.400">
+                <HStack w="150px" color="#9B9B9B">
                   <Box cursor="pointer" onClick={toggleSortOrder}>
                     <BiSortAlt2 />
                   </Box>

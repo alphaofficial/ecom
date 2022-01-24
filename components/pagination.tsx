@@ -59,7 +59,7 @@ const Pagination = (props: any) => {
               <Button variant="ghost">
                 <Text
                   fontWeight="bold"
-                  color={isActive(index + 1) ? "black" : "gray.300"}
+                  color={isActive(index + 1) ? "black" : "#B4B4B4"}
                 >
                   {pageNumber}
                 </Text>

@@ -51,11 +51,11 @@ const ProductItem: FC<ProductItemProps> = ({ product }) => {
         </Box>
       </Box>
       <Box marginTop="10px">
-        <Heading color="gray.500" fontSize="md" textTransform="capitalize">
+        <Heading color="#656565" fontSize="md" textTransform="capitalize">
           {product.category}
         </Heading>
         <Heading fontSize="xl">{product.name}</Heading>
-        <Text color="gray.400">{`${product.currency} ${product.price}`}</Text>
+        <Text color="#656565">{`${product.currency} ${product.price}`}</Text>
       </Box>
     </Box>
   );

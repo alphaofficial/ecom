@@ -1,5 +1,4 @@
-import { NextApiRequest } from "next";
-import { Db, MongoClient, Document } from "mongodb";
+import { Document } from "mongodb";
 export interface IProduct extends Document {
   name: string;
   category: string;

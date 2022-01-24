@@ -5,6 +5,7 @@ dotenv.config();
 
 async function seedDB() {
   const uri = process.env.DATABASE_URL;
+  const databaseName = process.env.DATABASE_NAME;
   const client = new MongoClient(uri, {
     useNewUrlParser: true,
     connectTimeoutMS: 10000,
@@ -13,7 +14,7 @@ async function seedDB() {
   try {
     await client.connect();
     console.log("Connected to database");
-    const collection = client.db("bejamas").collection("products");
+    const collection = client.db(databaseName).collection("products");
     await collection.drop();
     await collection.insertMany(productsData);
     console.log("Database seeded!");

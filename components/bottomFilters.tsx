@@ -10,10 +10,13 @@ import {
   DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
+  Heading,
   Stack,
   Text,
 } from "@chakra-ui/react";
 import { useState } from "react";
+import { IParams } from "../types";
+import PriceRange from "./priceRange";
 
 type CategoryParams = {
   category: string;
@@ -25,14 +28,19 @@ const BottomFilters = ({
   categories,
   onCategorySelect,
   categoryFilter,
+  priceRanges,
+  onPriceFilterChange,
 }: {
   onClose: () => void;
   isOpen: boolean;
   categories: string[];
-  onCategorySelect: (params: CategoryParams | CategoryParams[]) => void;
+  onCategorySelect: (params: IParams | IParams[]) => void;
   categoryFilter: string[];
+  priceRanges: any;
+  onPriceFilterChange: (value: string) => void;
 }) => {
-  const [categoryParams, setCategoryParams] = useState<CategoryParams[]>([]);
+  const [priceValue, setPriceValue] = useState<string>();
+  const [categoryParams, setCategoryParams] = useState<any[]>([]);
 
   const handleCategorySelect = (e: any) => {
     const { value, checked } = e.target;
@@ -44,7 +52,7 @@ const BottomFilters = ({
 
     // if newCategoryParams is already in the array, replace it
     const index = _categoryParams.findIndex(
-      (categoryParam: CategoryParams) => categoryParam.category === value
+      (categoryParam: any) => categoryParam.category === value
     );
     if (index !== -1) {
       _categoryParams[index] = newCategoryParams;
@@ -59,6 +67,9 @@ const BottomFilters = ({
 
   const onSave = () => {
     onCategorySelect(categoryParams);
+    if (priceValue) {
+      onPriceFilterChange(priceValue);
+    }
     onClose();
   };
 
@@ -75,7 +86,7 @@ const BottomFilters = ({
         <DrawerCloseButton />
         <DrawerHeader borderBottomWidth="1px">Filters</DrawerHeader>
         <DrawerBody>
-          <Box position="relative">
+          <Box>
             <Box marginBottom="40px">
               <Box>
                 <Stack
@@ -96,6 +107,15 @@ const BottomFilters = ({
                     </Box>
                   ))}
                 </Stack>
+              </Box>
+            </Box>
+            <Box>
+              <Heading fontSize="xl">Price range</Heading>
+              <Box marginTop="20px">
+                <PriceRange
+                  priceRanges={priceRanges}
+                  onPriceFilterChange={setPriceValue}
+                />
               </Box>
             </Box>
           </Box>

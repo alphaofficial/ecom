@@ -8,18 +8,23 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import { IParams } from "../types";
+import PriceRange from "./priceRange";
 
 type SidebarProps = {
   categories: string[];
   onCategorySelect: (params: IParams) => void;
   categoryFilter: string[];
+  priceRanges: any;
+  onPriceFilterChange: (value: string) => void;
 };
 const Sidebar: FC<SidebarProps> = ({
   categories,
   onCategorySelect,
   categoryFilter,
+  priceRanges,
+  onPriceFilterChange,
 }) => {
   const handleCategorySelect = (e: any) => {
     const { value, checked } = e.target;
@@ -28,6 +33,7 @@ const Sidebar: FC<SidebarProps> = ({
       checked,
     });
   };
+
   return (
     <Box>
       <Box marginBottom="20px">
@@ -56,17 +62,10 @@ const Sidebar: FC<SidebarProps> = ({
         <Heading fontSize="lg">Price</Heading>
       </Box>
       <Box marginBottom="20px">
-        <RadioGroup>
-          <Stack spacing={5} direction="column" textTransform="capitalize">
-            {categories.map((category) => (
-              <Box key={category}>
-                <Radio borderColor="black" value={category}>
-                  {category}
-                </Radio>
-              </Box>
-            ))}
-          </Stack>
-        </RadioGroup>
+        <PriceRange
+          priceRanges={priceRanges}
+          onPriceFilterChange={onPriceFilterChange}
+        />
       </Box>
     </Box>
   );

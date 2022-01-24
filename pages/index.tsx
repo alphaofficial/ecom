@@ -32,6 +32,7 @@ import { BsSliders } from "react-icons/bs";
 import { SWRConfig, useSWRConfig } from "swr";
 import { useProduct } from "../lib/hooks";
 import BottomFilters from "../components/bottomFilters";
+import { getArrayChunks } from "../utils";
 
 type PageProps = {
   fallback: {
@@ -46,6 +47,7 @@ const Home = () => {
   const [categoryFilter, setCategoryFilter] = useState<string[]>([]);
   const [sortOrder, setSortOrder] = useState<number>(1);
   const [sortValue, setSortValue] = useState<string>("price");
+  const [priceFilter, setPriceFilter] = useState<string>("none");
   const [filterChanged, setFilterChanged] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -64,7 +66,27 @@ const Home = () => {
       setCurrentPage(1);
       return categoryFilter.includes(product.category);
     });
-  }, [products, categoryFilter]);
+    // .filter((product) => {
+    //   if (priceFilter === "none") {
+    //     return true;
+    //   } else if (priceFilter?.includes("-")) {
+    //     console.log({ priceFilter });
+    //     let filter = priceFilter.split("-");
+    //     switch (filter[0]) {
+    //       case "gt":
+    //         return product.price > parseInt(filter[1]);
+    //       case "lt":
+    //         return product.price < parseInt(filter[1]);
+    //       default:
+    //         return (
+    //           product.price <= parseInt(filter[0]) &&
+    //           product.price >= parseInt(filter[1])
+    //         );
+    //     }
+    //   }
+    //   return true;
+    // });
+  }, [products, categoryFilter, priceFilter]);
 
   const categories = products?.reduce((acc, product) => {
     if (!acc.includes(product.category)) {
@@ -83,7 +105,22 @@ const Home = () => {
     return workingProducts
       .filter((product) => !product.featured)
       .slice(firstPageIndex, lastPageIndex);
-  }, [products, currentPage, categoryFilter]);
+  }, [products, currentPage, categoryFilter, priceFilter]);
+
+  const priceRanges = useMemo(() => {
+    const sortedProducts = products.sort((a, b) => a.price - b.price);
+    const chunks = getArrayChunks(sortedProducts, 4);
+    return {
+      //@ts-ignore
+      lowerThan: parseInt(chunks[0][chunks[0]?.length - 1].price),
+      //@ts-ignore
+      betweenMin: parseInt(chunks[0][chunks[0]?.length - 1].price),
+      //@ts-ignore
+      betweenMax: parseInt(chunks[1][chunks[1]?.length - 1].price),
+      //@ts-ignore
+      higherThan: parseInt(chunks[3][0].price),
+    };
+  }, [products]);
 
   const onCategorySelect = (params: IParams | IParams[]) => {
     if (Array.isArray(params)) {
@@ -105,6 +142,8 @@ const Home = () => {
       );
     }
   };
+
+  const onPriceFilterChange = (value: string) => setPriceFilter(value);
 
   const toggleSortOrder = () => {
     setSortOrder((prevState) => (prevState === 1 ? -1 : 1));
@@ -183,6 +222,8 @@ const Home = () => {
               categories={categories}
               onCategorySelect={onCategorySelect}
               categoryFilter={categoryFilter}
+              priceRanges={priceRanges}
+              onPriceFilterChange={onPriceFilterChange}
             />
           </Box>
           <Box>
@@ -217,6 +258,8 @@ const Home = () => {
         categories={categories}
         onCategorySelect={onCategorySelect}
         categoryFilter={categoryFilter}
+        priceRanges={priceRanges}
+        onPriceFilterChange={onPriceFilterChange}
       />
     </Layout>
   );

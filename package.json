@@ -15,15 +15,12 @@
     "easy-peasy": "^5.0.4",
     "framer-motion": "^5",
     "mongodb": "^4.3.1",
-    "nanoid": "^3.2.0",
     "next": "12.0.8",
     "next-connect": "^0.11.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-icons": "^4.3.1",
     "reset-css": "^5.0.1",
-    "simplebar": "^5.3.6",
-    "simplebar-react": "^2.3.6",
     "swr": "^1.1.1"
   },
   "devDependencies": {

@@ -1,8 +1,17 @@
 import { Box, Button, Flex, Heading, Image, Text } from "@chakra-ui/react";
+import { useStoreActions } from "easy-peasy";
 import { FC } from "react";
 import { IProduct } from "../types";
 
 const FeaturedProduct: FC<{ product: IProduct }> = ({ product }) => {
+  const addToCart = useStoreActions((store: any) => store.addToCart);
+  const openCart = useStoreActions((store: any) => store.openCart);
+
+  const onAddToCart = (product: IProduct) => {
+    addToCart(product);
+    openCart();
+  };
+
   return (
     <Box marginBottom="80px">
       <Flex justifyContent="space-between" alignItems="center">
@@ -28,6 +37,7 @@ const FeaturedProduct: FC<{ product: IProduct }> = ({ product }) => {
               color: "black",
               transition: "all 0.2s",
             }}
+            onClick={() => onAddToCart(product)}
           >
             Add to cart
           </Button>

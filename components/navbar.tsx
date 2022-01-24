@@ -1,10 +1,14 @@
 import { Box, Divider, Flex, IconButton, Text } from "@chakra-ui/react";
+import { useStoreState } from "easy-peasy";
 import Image from "next/image";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import Cart from "./cart";
 
 const Navbar = () => {
+  const cartItems = useStoreState((store: any) => store.cartItems);
+
   return (
-    <Box marginBottom="10px" paddingY="24px">
+    <Box marginBottom="10px" paddingY="24px" position="relative">
       <Flex
         justifyContent="space-between"
         alignItems="center"
@@ -27,14 +31,13 @@ const Navbar = () => {
             <Box
               position="absolute"
               bg="black"
-              padding="4px"
-              width="21px"
-              height="21px"
-              right="-14px"
-              bottom="-11px"
+              width="15px"
+              height="15px"
+              right="-10px"
+              bottom="-5px"
             >
               <Text fontSize="x-small" color="white" textAlign="center">
-                1
+                {cartItems.length}
               </Text>
             </Box>
           </Box>

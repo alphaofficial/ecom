@@ -31,8 +31,8 @@ type PageProps = {
 };
 
 const Home = () => {
-  const { mutate } = useSWRConfig();
   const PageSize = 6;
+  const { mutate } = useSWRConfig();
   const [categoryFilter, setCategoryFilter] = useState<string[]>([]);
   const [sortOrder, setSortOrder] = useState<number>(1);
   const [sortValue, setSortValue] = useState<string>("price");
@@ -138,18 +138,28 @@ const Home = () => {
             </Box>
           </Flex>
         </Box>
-        <Flex justifyContent="space-between">
-          <Box width="250px">
+        <Flex
+          justifyContent="space-between"
+          flexDirection={{ base: "column", md: "row", lg: "row" }}
+        >
+          <Box width="250px" display={{ base: "none", md: "block" }}>
             <Sidebar
               categories={categories}
               onCategorySelect={onCategorySelect}
             />
           </Box>
           <Box>
-            <Grid templateColumns="repeat(3, 1fr)" gap={6}>
+            <Grid
+              templateColumns={{
+                base: "repeat(1, 1fr)",
+                md: "repeat(2, 1fr)",
+                lg: "repeat(3, 1fr)",
+              }}
+              gap={6}
+            >
               {currentProductList.map((product) => (
                 <GridItem key={product._id}>
-                  <ProductItem product={product} onAddToCart={() => null} />
+                  <ProductItem product={product} />
                 </GridItem>
               ))}
             </Grid>

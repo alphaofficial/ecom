@@ -1,5 +1,9 @@
 # Bejamas technical homework
 
+## Live preview
+
+The app is deployed on vercel at [https://bejamas-gold.vercel.app/](https://bejamas-gold.vercel.app/)
+
 ## Working features
 
 - Featured product

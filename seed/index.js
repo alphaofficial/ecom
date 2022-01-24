@@ -18,6 +18,7 @@ async function seedDB() {
     await collection.insertMany(productsData);
     console.log("Database seeded!");
     await client.close();
+    console.log("Database disconnected!");
   } catch (err) {
     console.log(err.message);
   }

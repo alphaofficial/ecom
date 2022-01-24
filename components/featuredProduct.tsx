@@ -9,6 +9,7 @@ import {
 } from "@chakra-ui/react";
 import { useStoreActions } from "easy-peasy";
 import { FC } from "react";
+import Image from "next/image";
 import { IProduct } from "../types";
 
 const FeaturedProduct: FC<{ product: IProduct }> = ({ product }) => {
@@ -56,17 +57,20 @@ const FeaturedProduct: FC<{ product: IProduct }> = ({ product }) => {
           </Button>
         </Box>
       </Flex>
-      <Box paddingY="10px" position="relative">
-        <Box
-          width="100%"
-          height="500px"
-          backgroundImage={product.image.src}
-          backgroundSize="cover"
-        />
+      <Box marginTop="20px" paddingY="10px" position="relative">
+        <Box width="100%">
+          <Image
+            layout="responsive"
+            src={product.image.src}
+            alt={product.image.alt}
+            width={800}
+            height={500}
+          />
+        </Box>
         <Box
           position="absolute"
           left="0"
-          bottom="10px"
+          bottom="0px"
           bg="white"
           paddingY="10px"
           paddingX="56px"

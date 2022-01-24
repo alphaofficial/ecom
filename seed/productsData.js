@@ -5,7 +5,7 @@ const productsData = [
     price: 29.4,
     currency: "USD",
     image: {
-      src: "https://picsum.photos/id/1048/1024/500",
+      src: "https://picsum.photos/id/1048/800/500",
       alt: "nike air max",
     },
     bestseller: true,
@@ -42,7 +42,7 @@ const productsData = [
     price: 68.19,
     currency: "USD",
     image: {
-      src: "https://picsum.photos/id/1027/1024/500",
+      src: "https://picsum.photos/id/1027/800/500",
       alt: "nike runner 4000",
     },
     bestseller: false,
@@ -65,7 +65,7 @@ const productsData = [
     price: 24.18,
     currency: "USD",
     image: {
-      src: "https://picsum.photos/id/1028/1024/500",
+      src: "https://picsum.photos/id/1028/800/500",
       alt: "nike air force",
     },
     bestseller: false,
@@ -88,7 +88,7 @@ const productsData = [
     price: 9.62,
     currency: "USD",
     image: {
-      src: "https://picsum.photos/id/1029/1024/500",
+      src: "https://picsum.photos/id/1029/800/500",
       alt: "jordan 4 retro",
     },
     bestseller: true,
@@ -111,7 +111,7 @@ const productsData = [
     price: 89.78,
     currency: "USD",
     image: {
-      src: "https://picsum.photos/id/1049/1024/500",
+      src: "https://picsum.photos/id/1049/800/500",
       alt: "ray ban 403",
     },
     bestseller: false,
@@ -134,7 +134,7 @@ const productsData = [
     price: 48.53,
     currency: "USD",
     image: {
-      src: "https://picsum.photos/id/103/1024/500",
+      src: "https://picsum.photos/id/103/800/500",
       alt: "dior homme",
     },
     bestseller: true,
@@ -157,7 +157,7 @@ const productsData = [
     price: 69.96,
     currency: "USD",
     image: {
-      src: "https://picsum.photos/id/1031/1024/500",
+      src: "https://picsum.photos/id/1031/800/500",
       alt: "armani junior",
     },
     bestseller: false,
@@ -180,7 +180,7 @@ const productsData = [
     price: 6.57,
     currency: "USD",
     image: {
-      src: "https://picsum.photos/id/1032/1024/500",
+      src: "https://picsum.photos/id/1032/800/500",
       alt: "dolce & gabbana",
     },
     bestseller: false,
@@ -226,7 +226,7 @@ const productsData = [
     price: 60.51,
     currency: "USD",
     image: {
-      src: "https://picsum.photos/id/1035/1024/500",
+      src: "https://picsum.photos/id/1035/800/500",
       alt: "wendy's",
     },
     bestseller: false,
@@ -249,7 +249,7 @@ const productsData = [
     price: 52.21,
     currency: "USD",
     image: {
-      src: "https://picsum.photos/id/106/1024/500",
+      src: "https://picsum.photos/id/106/800/500",
       alt: "kfc",
     },
     bestseller: false,
@@ -272,7 +272,7 @@ const productsData = [
     price: 37.03,
     currency: "USD",
     image: {
-      src: "https://picsum.photos/id/1037/1024/500",
+      src: "https://picsum.photos/id/1037/800/500",
       alt: "burgar king",
     },
     bestseller: false,
@@ -295,7 +295,7 @@ const productsData = [
     price: 43.79,
     currency: "USD",
     image: {
-      src: "https://picsum.photos/id/1038/1024/500",
+      src: "https://picsum.photos/id/1038/800/500",
       alt: "xbox 360",
     },
     bestseller: true,
@@ -318,7 +318,7 @@ const productsData = [
     price: 79.73,
     currency: "USD",
     image: {
-      src: "https://picsum.photos/id/1039/1024/500",
+      src: "https://picsum.photos/id/1039/800/500",
       alt: "playstaion 4",
     },
     bestseller: false,
@@ -341,7 +341,7 @@ const productsData = [
     price: 68.24,
     currency: "USD",
     image: {
-      src: "https://picsum.photos/id/104/1024/500",
+      src: "https://picsum.photos/id/104/800/500",
       alt: "playstation 3",
     },
     bestseller: false,
@@ -364,7 +364,7 @@ const productsData = [
     price: 49.27,
     currency: "USD",
     image: {
-      src: "https://picsum.photos/id/1041/1024/500",
+      src: "https://picsum.photos/id/1041/800/500",
       alt: "nintendo switch",
     },
     bestseller: true,
@@ -387,7 +387,7 @@ const productsData = [
     price: 53.68,
     currency: "USD",
     image: {
-      src: "https://picsum.photos/id/1042/1024/500",
+      src: "https://picsum.photos/id/1042/800/500",
       alt: "facial foundation",
     },
     bestseller: true,
@@ -410,7 +410,7 @@ const productsData = [
     price: 33.33,
     currency: "USD",
     image: {
-      src: "https://picsum.photos/id/1043/1024/500",
+      src: "https://picsum.photos/id/1043/800/500",
       alt: "lifestyle bencher",
     },
     bestseller: false,
@@ -433,7 +433,7 @@ const productsData = [
     price: 56.67,
     currency: "USD",
     image: {
-      src: "https://picsum.photos/id/1044/1024/500",
+      src: "https://picsum.photos/id/1044/800/500",
       alt: "velvel scarf",
     },
     bestseller: true,
@@ -456,7 +456,7 @@ const productsData = [
     price: 22.11,
     currency: "USD",
     image: {
-      src: "https://picsum.photos/id/1045/1024/500",
+      src: "https://picsum.photos/id/1045/800/500",
       alt: "lifestyle front",
     },
     bestseller: false,

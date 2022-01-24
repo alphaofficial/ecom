@@ -43,7 +43,7 @@ const Cart = () => {
       </Box>
       <Box paddingX="20px" paddingY="10px">
         {cartItems.map((item: IProduct, index: number) => (
-          <Box paddingY="5px">
+          <Box key={index} paddingY="5px">
             <Flex justifyContent="space-between" alignItems="center">
               <Box>
                 <Heading fontSize="md">{item.name}</Heading>

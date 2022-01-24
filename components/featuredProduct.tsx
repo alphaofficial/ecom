@@ -58,7 +58,7 @@ const FeaturedProduct: FC<{ product: IProduct }> = ({ product }) => {
         </Box>
       </Flex>
       <Box marginTop="20px" paddingY="10px" position="relative">
-        <Box width="100%">
+        <Box width="100%" height="auto">
           <Image
             layout="responsive"
             src={product.image.src}

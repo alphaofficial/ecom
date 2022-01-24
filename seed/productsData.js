@@ -5,7 +5,7 @@ const productsData = [
     price: 29.4,
     currency: "USD",
     image: {
-      src: "https://picsum.photos/id/1048/800/500",
+      src: "https://picsum.photos/id/1068/800/300",
       alt: "nike air max",
     },
     bestseller: true,

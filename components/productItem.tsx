@@ -1,5 +1,5 @@
 import { Box, Button, Heading, Text } from "@chakra-ui/react";
-import { useStoreActions, useStoreState } from "easy-peasy";
+import { useStoreActions } from "easy-peasy";
 import { FC } from "react";
 import { IProduct } from "../types";
 

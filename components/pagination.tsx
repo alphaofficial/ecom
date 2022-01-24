@@ -1,4 +1,4 @@
-import { usePagination, DOTS } from "../lib/hooks";
+import { usePagination } from "../lib/hooks";
 import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
 import { Box, Button, Flex, IconButton, Text } from "@chakra-ui/react";
 

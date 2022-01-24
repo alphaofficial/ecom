@@ -12,7 +12,6 @@ import {
   DrawerOverlay,
   Heading,
   Stack,
-  Text,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { IParams } from "../types";

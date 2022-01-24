@@ -1,14 +1,5 @@
-import {
-  Box,
-  Checkbox,
-  Divider,
-  Heading,
-  Radio,
-  RadioGroup,
-  Stack,
-  Text,
-} from "@chakra-ui/react";
-import { FC, useEffect, useState } from "react";
+import { Box, Checkbox, Divider, Heading, Stack } from "@chakra-ui/react";
+import { FC } from "react";
 import { IParams } from "../types";
 import PriceRange from "./priceRange";
 

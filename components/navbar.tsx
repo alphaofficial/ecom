@@ -2,7 +2,6 @@ import { Box, Divider, Flex, IconButton, Text } from "@chakra-ui/react";
 import { useStoreActions, useStoreState } from "easy-peasy";
 import Image from "next/image";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import Cart from "./cart";
 
 const Navbar = () => {
   const cartItems = useStoreState((store: any) => store.cartItems);

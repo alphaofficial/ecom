@@ -5,8 +5,6 @@ import Cart from "./cart";
 import Navbar from "./navbar";
 
 const Layout = ({ children }: { children: ReactNode }) => {
-  const isCartOpen = useStoreState((store: any) => store.isCartOpen);
-
   return (
     <Box>
       <Container maxW="container.xl">

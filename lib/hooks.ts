@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import useSWR from "swr";
 import { fetcher } from "./fetcher";
-import { IFilter, IPaginationProps, IProduct } from "../types";
+import { IPaginationProps, IProduct } from "../types";
 
 export const DOTS = "...";
 

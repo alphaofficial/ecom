@@ -10,7 +10,6 @@ import {
 } from "@chakra-ui/react";
 import { useStoreActions, useStoreState } from "easy-peasy";
 import { MdClose } from "react-icons/md";
-import handler from "../pages/api/products";
 import { IProduct } from "../types";
 
 const Cart = () => {

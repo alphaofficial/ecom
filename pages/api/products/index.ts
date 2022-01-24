@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { createProduct, getProducts } from "../../../db/resources/product";
+import { getProducts } from "../../../db/resources/product";
 import { serialize } from "../../../lib/serialize";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
@@ -9,13 +9,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       try {
         let products = await getProducts(queries);
         return res.status(200).json({ data: serialize(products) });
-      } catch (error) {
-        return res.status(500).json({ error });
-      }
-    case "POST":
-      try {
-        let product = await createProduct(req.body);
-        return res.status(200).json({ data: serialize([product]) });
       } catch (error) {
         return res.status(500).json({ error });
       }

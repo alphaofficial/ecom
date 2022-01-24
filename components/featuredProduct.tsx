@@ -5,7 +5,6 @@ import {
   Grid,
   GridItem,
   Heading,
-  Image,
   Text,
 } from "@chakra-ui/react";
 import { useStoreActions } from "easy-peasy";

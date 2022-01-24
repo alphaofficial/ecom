@@ -61,6 +61,12 @@ yarn
 
 Create a `.env` file based on the [.env.example template](.env.example)
 
+Seed the database
+
+```bash
+yarn seed
+```
+
 Start the projects development server
 
 ```bash

@@ -17,7 +17,7 @@ const ProductItem: FC<ProductItemProps> = ({ product }) => {
   };
   return (
     <Box>
-      <Box position="relative" w={[362, 282]} height={[402, 398]}>
+      <Box position="relative" w={["100%", 282]} height={[402, 398]}>
         <Box
           position="absolute"
           bg="white"
@@ -27,10 +27,11 @@ const ProductItem: FC<ProductItemProps> = ({ product }) => {
           <Text fontSize="small">Best seller</Text>
         </Box>
         <Box
-          w={[362, 282]}
+          w={["100%", 282]}
           height={[402, 398]}
           backgroundImage={product.image.src}
           backgroundSize="cover"
+          aria-label={product.image.alt}
         ></Box>
         <Box position="absolute" left="0" bottom="0px" width="100%">
           <Button

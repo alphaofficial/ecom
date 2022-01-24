@@ -6,7 +6,6 @@ import Navbar from "./navbar";
 
 const Layout = ({ children }: { children: ReactNode }) => {
   const isCartOpen = useStoreState((store: any) => store.isCartOpen);
-  console.log({ isCartOpen });
 
   return (
     <Box>
@@ -18,10 +17,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
             right="0"
             top="80px"
             zIndex="9999"
-            bg="white"
-            sx={{
-              display: isCartOpen ? "block" : "none",
-            }}
+            width={{ base: "100%", md: "443px" }}
           >
             <Cart />
           </Box>

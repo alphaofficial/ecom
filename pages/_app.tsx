@@ -21,11 +21,11 @@ const theme = extendTheme({
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ChakraProvider theme={theme}>
-      <StoreProvider store={store}>
+    <StoreProvider store={store}>
+      <ChakraProvider theme={theme}>
         <Component {...pageProps} />
-      </StoreProvider>
-    </ChakraProvider>
+      </ChakraProvider>
+    </StoreProvider>
   );
 }
 

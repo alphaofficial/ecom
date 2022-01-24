@@ -1,11 +1,12 @@
 import { Box, Divider, Flex, IconButton, Text } from "@chakra-ui/react";
-import { useStoreState } from "easy-peasy";
+import { useStoreActions, useStoreState } from "easy-peasy";
 import Image from "next/image";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import Cart from "./cart";
 
 const Navbar = () => {
   const cartItems = useStoreState((store: any) => store.cartItems);
+  const openCart = useStoreActions((store: any) => store.openCart);
 
   return (
     <Box marginBottom="10px" paddingY="24px" position="relative">
@@ -24,7 +25,11 @@ const Navbar = () => {
         </Box>
         <Box>
           <Box position="relative">
-            <IconButton variant="ghost>" aria-label="shopping cart button">
+            <IconButton
+              onClick={openCart}
+              variant="ghost"
+              aria-label="shopping cart button"
+            >
               <AiOutlineShoppingCart size={40} />
             </IconButton>
 

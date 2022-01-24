@@ -1,14 +1,21 @@
 import {
   Box,
   Divider,
+  Drawer,
+  DrawerBody,
+  DrawerContent,
+  DrawerHeader,
+  DrawerOverlay,
   Flex,
   Grid,
   GridItem,
   Heading,
   HStack,
+  IconButton,
   Select,
   Spinner,
   Text,
+  useDisclosure,
 } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import FeaturedProduct from "../components/featuredProduct";
@@ -21,8 +28,10 @@ import ProductItem from "../components/productItem";
 import { useEffect, useMemo, useState } from "react";
 import Pagination from "../components/pagination";
 import { BiSortAlt2 } from "react-icons/bi";
+import { BsSliders } from "react-icons/bs";
 import { SWRConfig, useSWRConfig } from "swr";
 import { useProduct } from "../lib/hooks";
+import BottomFilters from "../components/bottomFilters";
 
 type PageProps = {
   fallback: {
@@ -33,6 +42,7 @@ type PageProps = {
 const Home = () => {
   const PageSize = 6;
   const { mutate } = useSWRConfig();
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const [categoryFilter, setCategoryFilter] = useState<string[]>([]);
   const [sortOrder, setSortOrder] = useState<number>(1);
   const [sortValue, setSortValue] = useState<string>("price");
@@ -75,13 +85,25 @@ const Home = () => {
       .slice(firstPageIndex, lastPageIndex);
   }, [products, currentPage, categoryFilter]);
 
-  const onCategorySelect = (params: IParams) => {
-    if (params.checked) {
-      return setCategoryFilter((prevState) => [...prevState, params.category]);
+  const onCategorySelect = (params: IParams | IParams[]) => {
+    if (Array.isArray(params)) {
+      //filter for unique categories and checked is true
+      const newCategoryFilter = params
+        .filter((param) => param.checked)
+        .map((param) => param.category);
+
+      setCategoryFilter(newCategoryFilter);
+    } else {
+      if (params.checked) {
+        return setCategoryFilter((prevState) => [
+          ...prevState,
+          params.category,
+        ]);
+      }
+      return setCategoryFilter((prevState) =>
+        prevState.filter((category) => category !== params.category)
+      );
     }
-    return setCategoryFilter((prevState) =>
-      prevState.filter((category) => category !== params.category)
-    );
   };
 
   const toggleSortOrder = () => {
@@ -113,7 +135,7 @@ const Home = () => {
       <Divider color="gray.300" />
       <Box paddingY="20px">
         <Box marginBottom="20px">
-          <Flex justifyContent="space-between">
+          <Flex justifyContent="space-between" alignItems="center">
             <Box>
               <HStack>
                 <Heading fontSize="lg">Photography / </Heading>
@@ -122,7 +144,7 @@ const Home = () => {
                 </Text>
               </HStack>
             </Box>
-            <Box>
+            <Box display={{ base: "none", sm: "none", md: "block" }}>
               <Flex alignItems="center">
                 <HStack w="150px" color="gray.400">
                   <Box cursor="pointer" onClick={toggleSortOrder}>
@@ -136,16 +158,31 @@ const Home = () => {
                 </Select>
               </Flex>
             </Box>
+            <Box display={{ base: "block", sm: "block", md: "none" }}>
+              <IconButton
+                aria-label="sort button"
+                bg="white"
+                border="1px solid #000000"
+                onClick={onOpen}
+              >
+                <BsSliders size={25} />
+              </IconButton>
+            </Box>
           </Flex>
         </Box>
         <Flex
           justifyContent="space-between"
           flexDirection={{ base: "column", md: "row", lg: "row" }}
         >
-          <Box width="250px" display={{ base: "none", md: "block" }}>
+          <Box
+            width="30%"
+            marginRight="20px"
+            display={{ base: "none", md: "block" }}
+          >
             <Sidebar
               categories={categories}
               onCategorySelect={onCategorySelect}
+              categoryFilter={categoryFilter}
             />
           </Box>
           <Box>
@@ -174,6 +211,13 @@ const Home = () => {
           </Box>
         </Flex>
       </Box>
+      <BottomFilters
+        isOpen={isOpen}
+        onClose={onClose}
+        categories={categories}
+        onCategorySelect={onCategorySelect}
+        categoryFilter={categoryFilter}
+      />
     </Layout>
   );
 };

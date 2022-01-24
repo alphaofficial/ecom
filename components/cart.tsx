@@ -21,10 +21,14 @@ const Cart = () => {
 
   return (
     <Box
-      width="443px"
+      width={{ base: "100%", md: "443px" }}
       minHeight="200px"
       border="4px solid #E4E4E4"
       boxSizing="border-box"
+      bg="white"
+      sx={{
+        display: isCartOpen ? "block" : "none",
+      }}
     >
       <Box paddingX="10px" textAlign="right">
         <Box>

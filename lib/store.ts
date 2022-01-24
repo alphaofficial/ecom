@@ -12,13 +12,14 @@ export const store = createStore({
       (item: any) => item._id !== payload._id
     );
   }),
-  openCart: action((state: any) => {
+  openCart: action((state: any, payload?: boolean) => {
     state.isCartOpen = true;
   }),
-  hideCart: action((state: any) => {
+  hideCart: action((state: any, payload?: boolean) => {
     state.isCartOpen = false;
   }),
-  clearCart: action((state: any) => {
+  clearCart: action((state: any, payload?: any) => {
     state.cartItems = [];
+    state.isCartOpen = false;
   }),
 });

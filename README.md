@@ -1,4 +1,4 @@
-# Bejamas technical homework
+# Ecommerce page
 
 ## Live preview
 

@@ -15,7 +15,7 @@ The app is deployed on vercel at [https://bejamas-gold.vercel.app/](https://beja
 - Web performance
 - API implementation
 
-NB: Filtering by price is not working. Need more time to finish that feature
+NB: Filtering by price is not working yet.
 
 ## Getting Started
 
